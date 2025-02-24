@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Journal Entries</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <div class="max-w-screen-lg mx-auto p-8">
+        <h1 class="text-4xl font-semibold mb-8">Search Journal Entries by Tag</h1>
+
+        <form method="POST" class="mb-6">
+            <input type="text" name="search_term" class="border p-2 rounded-md w-full mb-4" placeholder="Enter tag to search" required>
+            <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md">Search</button>
+        </form>
+
+        <h2 class="text-2xl font-semibold mb-4">Search Results</h2>
+        {% if entries %}
+            {% for entry in entries %}
+                <div class="mb-6 p-4 border rounded-md bg-white">
+                    <a href="{{ url_for('view_journal_entry', entry_id=entry.id) }}" class="text-xl font-bold">{{ entry.title }}</a>
+                    <p class="text-sm text-gray-600">Tags: {{ entry.tags }}</p>
+                    <p class="text-sm text-gray-500">{{ entry.date_created }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No entries found with the given tag.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

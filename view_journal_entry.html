@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ entry.title }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <div class="max-w-screen-lg mx-auto p-8">
+        <h1 class="text-4xl font-semibold mb-8">{{ entry.title }}</h1>
+        <p class="text-sm text-gray-600">Tags: {{ entry.tags }}</p>
+        <p class="text-sm text-gray-500">Created on: {{ entry.date_created }}</p>
+        <div class="mt-4">
+            <p>{{ entry.content }}</p>
+        </div>
+        <a href="{{ url_for('journal') }}" class="mt-8 inline-block bg-blue-500 text-white py-2 px-6 rounded-md">Back to Journal</a>
+        <a href="{{ url_for('home') }}" class="mt-8 inline-block bg-gray-500 text-white py-2 px-6 rounded-md">Back to Home</a>
+    </div>
+</body>
+</html>

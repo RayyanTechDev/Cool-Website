@@ -1,0 +1,19 @@
+<!-- templates/errors/403.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>403 - Forbidden</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+    <div class="min-h-screen flex items-center justify-center">
+        <div class="text-center bg-white p-8 rounded shadow-lg">
+            <h1 class="text-4xl font-bold text-red-500">403</h1>
+            <p class="text-xl text-gray-600">You do not have permission to access this page.</p>
+            <a href="{{ url_for('home') }}" class="mt-8 inline-block bg-gray-500 text-white py-2 px-6 rounded-md">Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

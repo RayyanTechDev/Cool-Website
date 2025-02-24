@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/scrollreveal"></script>
+    <title>About Us</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <section class="py-16 bg-white">
+        <div class="max-w-screen-xl mx-auto text-center">
+            <h2 class="text-3xl font-semibold">About Us</h2>
+            <p class="mt-4 text-lg">Learn about our mission, vision, and team behind the project.</p>
+            
+            <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all" data-scrollreveal="enter from bottom after 0.5s">
+                    <h3 class="text-xl font-semibold">Our Mission</h3>
+                    <p class="text-gray-600 mt-4">To inspire creativity and innovation through engaging and impactful design.</p>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all" data-scrollreveal="enter from bottom after 0.6s">
+                    <h3 class="text-xl font-semibold">Our Team</h3>
+                    <p class="text-gray-600 mt-4">A group of passionate individuals driven to make an impact with our designs and tools.</p>
+                </div>
+                <div class="p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-all" data-scrollreveal="enter from bottom after 0.7s">
+                    <h3 class="text-xl font-semibold">Our Vision</h3>
+                    <p class="text-gray-600 mt-4">To empower individuals to express their creativity and reach their full potential.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="text-center py-6">
+        <a href="/" class="inline-block bg-gray-600 text-white py-2 px-6 rounded-md hover:bg-gray-700 transition-colors">Back to Home</a>
+    </div>
+
+</body>
+</html>

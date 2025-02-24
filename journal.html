@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Journal</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <div class="max-w-screen-lg mx-auto p-8">
+        <h1 class="text-4xl font-semibold mb-8">Daily Journal</h1>
+
+        <!-- Journal Entry Form -->
+        <form method="POST" class="mb-6">
+            <input type="text" name="title" class="border p-2 rounded-md w-full mb-4" placeholder="Entry Title" required>
+            <textarea name="content" class="border p-2 rounded-md w-full mb-4" rows="5" placeholder="Write your journal here..." required></textarea>
+            <input type="text" name="tags" class="border p-2 rounded-md w-full mb-4" placeholder="Enter tags (comma-separated)" >
+            <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md">Save Entry</button>
+        </form>
+
+        <!-- Display Entries -->
+        <h2 class="text-2xl font-semibold mb-4">Your Journal Entries</h2>
+        {% for entry in entries %}
+            <div class="mb-6 p-4 border rounded-md bg-white">
+                <a href="{{ url_for('view_journal_entry', entry_id=entry.id) }}" class="text-xl font-bold">{{ entry.title }}</a>
+                <p class="text-sm text-gray-600">Tags: {{ entry.tags }}</p>
+                <p class="text-sm text-gray-500">{{ entry.date_created }}</p>
+            </div>
+        {% else %}
+            <p>No entries yet. Start writing!</p>
+        {% endfor %}
+
+        <!-- Links to Search and View a Sample Entry -->
+        <div class="mt-8">
+            <a href="{{ url_for('search_entries') }}" class="inline-block bg-yellow-500 text-white py-2 px-6 rounded-md hover:bg-yellow-600 transition-colors transform hover:scale-105">Search Entries</a>
+        </div>
+
+        <div class="mt-4">
+            <h3 class="text-lg font-semibold">Sample Entry:</h3>
+            {% if entries %}
+                <a href="{{ url_for('view_journal_entry', entry_id=entries[0].id) }}" class="inline-block bg-blue-500 text-white py-2 px-6 rounded-md hover:bg-blue-600 transition-colors transform hover:scale-105 mt-2">View First Entry</a>
+            {% else %}
+                <p class="text-gray-500 mt-2">No entries to view yet.</p>
+            {% endif %}
+        </div>
+
+        <a href="{{ url_for('home') }}" class="mt-8 inline-block bg-gray-500 text-white py-2 px-6 rounded-md">Back to Home</a>
+    </div>
+</body>
+</html>

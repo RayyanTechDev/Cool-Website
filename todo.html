@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+
+    <section class="py-16">
+        <div class="max-w-screen-xl mx-auto text-center">
+            <h1 class="text-4xl font-semibold mb-6">To-Do List</h1>
+
+            <!-- Add Task Form -->
+            <form method="POST" class="mb-6">
+                <input type="text" name="title" class="border p-2 rounded" placeholder="New task" required>
+                <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Add Task</button>
+            </form>
+
+            <!-- Task List -->
+            <ul class="space-y-4">
+                {% for task in tasks %}
+                <li class="bg-white p-4 rounded-md shadow-md flex justify-between items-center">
+                    <span>{{ task.title }}</span>
+                    <form action="{{ url_for('delete_task', task_id=task.id) }}" method="POST" class="inline-block">
+                        <button type="submit" class="text-red-600 hover:text-red-800">Delete</button>
+                    </form>
+                </li>
+                {% endfor %}
+            </ul>
+
+            <!-- Back to Home Button -->
+            <div class="mt-6 text-center">
+                <a href="{{ url_for('home') }}" class="inline-block bg-gray-600 text-white py-2 px-6 rounded-md hover:bg-gray-700 transition-colors">Back to Home</a>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

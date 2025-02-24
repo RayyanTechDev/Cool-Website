@@ -1,0 +1,59 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7fafc; /* Light background for better contrast */
+}
+
+h1 {
+    color: #2d3748; /* Darker color for the heading */
+}
+
+.pixel {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    margin: 1px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    cursor: pointer; /* Adds pointer cursor on hover for interaction */
+    transition: background-color 0.3s ease; /* Smooth transition on color change */
+}
+
+.pixel.active {
+    background-color: #000; /* Black for active pixels */
+}
+
+#pixel-grid {
+    display: grid;
+    grid-template-columns: repeat(16, 20px);
+    grid-template-rows: repeat(16, 20px);
+    gap: 1px;
+    margin: 0 auto;
+    border: 2px solid #ddd; /* Border around the grid for a cleaner look */
+    justify-content: center; /* Ensures the grid is horizontally centered */
+}
+
+button {
+    font-size: 1rem;
+    font-weight: 600;
+    transition: transform 0.2s ease-in-out; /* Smooth scaling effect */
+}
+
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.5); /* Outline on focus for accessibility */
+}
+
+button:hover {
+    transform: scale(1.05); /* Slightly enlarge buttons on hover */
+}
+
+/* Back to Home Button */
+a {
+    font-size: 1rem;
+    font-weight: 600;
+    transition: transform 0.2s ease-in-out;
+}
+
+a:hover {
+    transform: scale(1.05); /* Slightly enlarge link on hover */
+}
